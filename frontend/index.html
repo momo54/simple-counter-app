@@ -10,8 +10,12 @@
     <button id="incrementBtn">Increment Counter</button>
 
     <script>
+        // carefull: the port of the backend should be public on github codespace
+        const backend='https://crispy-space-potato-r75rwpvv2wwq7-8443.app.github.dev'
+
+
         function getCounter() {
-            fetch('https://localhost:8080/api/counter')
+            fetch(backend+'/api/counter')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('counterValue').textContent = data;
@@ -19,7 +23,7 @@
         }
 
         function incrementCounter() {
-            fetch('https://localhost:8080/api/counter/increment', { method: 'POST' })
+            fetch(backend+'/api/counter/increment', { method: 'POST' })
             .then(() => getCounter());
         }
 
