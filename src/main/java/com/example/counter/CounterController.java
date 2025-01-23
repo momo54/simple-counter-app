@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")  // Autoriser toutes les origines (à restreindre en production)
 @RestController
 @RequestMapping("/api/counter")
 public class CounterController {

@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS counter (
+    id SERIAL PRIMARY KEY,
+    value INT NOT NULL DEFAULT 0
+);
+
+INSERT INTO counter (value) SELECT 0 WHERE NOT EXISTS (SELECT * FROM counter);

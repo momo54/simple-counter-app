@@ -11,7 +11,7 @@
 
     <script>
         function getCounter() {
-            fetch('https://localhost:8080/api/counter')
+            fetch('/api/counter')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('counterValue').textContent = data;
@@ -19,7 +19,7 @@
         }
 
         function incrementCounter() {
-            fetch('https://localhost:8080/api/counter/increment', { method: 'POST' })
+            fetch('/api/counter/increment', { method: 'POST' })
             .then(() => getCounter());
         }
 
