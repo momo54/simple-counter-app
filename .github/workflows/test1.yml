@@ -2,7 +2,7 @@ name: Auto Grading (Spring Boot + Docker Compose)
 
 on:
   push:
-    branches: [main]  # ou la branche par défaut de votre projet
+    branches: [master]  # ou la branche par défaut de votre projet
 
 jobs:
   build-and-test:
