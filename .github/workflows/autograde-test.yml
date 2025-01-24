@@ -37,19 +37,14 @@ jobs:
           sleep 10
 
       # autograde Vérifier que la nouvelle page est accessible
-      - name: URL test
+      - name: URL Test
         id: url-test
         uses: classroom-resources/autograding-io-grader@v1
         with:
-          test-name: Shout Test
+          test-name: URL Test
           command: curl -kf https://localhost:8443/index.html
           timeout: 10
           max-score: 10
-
-      # 7. (Facultatif) Arrêter les conteneurs en fin de test
-      - name: Stop containers
-        if: always()
-        run: docker compose down
 
       - name: Autograding Reporter
         uses: ./
@@ -57,3 +52,9 @@ jobs:
           URL-TEST_RESULTS: "${{steps.url-test.outputs.result}}"
         with:
           runners: url-test
+
+      # last. (Facultatif) Arrêter les conteneurs en fin de test
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
