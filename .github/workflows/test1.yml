@@ -37,7 +37,7 @@ jobs:
       - name: Check new page
         run: |
           # Par exemple si votre service écoute sur 8080
-          curl -f http://localhost:8080/index.html
+          curl -kf http://localhost:8080/index.html
           
           # -f (fail) permet à curl de renvoyer un code d'erreur
           # si la page est en 4xx ou 5xx.
