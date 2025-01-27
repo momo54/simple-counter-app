@@ -2,10 +2,13 @@
 
 to run:
 ```
-mvn clean package
+mvn clean install
 docker-compose build --no-cache
 docker-compose up -d
 ```
 
-web app on https://localhost:8443
-
+usefull:
+````
+curl http://localhost:8080/api/counter
+docker-compose logs 
+```
