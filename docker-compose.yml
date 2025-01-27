@@ -31,15 +31,15 @@ services:
     networks:
       - counter-net
 
-  frontend:
-    image: nginx:alpine
-    container_name: frontend
-    volumes:
-      - ./frontend:/usr/share/nginx/html
-    ports:
-      - "80:80"
-    networks:
-      - counter-net
+#  frontend:
+#    image: nginx:alpine
+#    container_name: frontend
+#    volumes:
+#      - ./frontend:/usr/share/nginx/html
+#    ports:
+#      - "80:80"
+#    networks:
+#      - counter-net
 
 volumes:
   pgdata:
