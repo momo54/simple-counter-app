@@ -1,3 +1,3 @@
 {
-    "postCreateCommand": "sdk install java 17.0.8-tem && pip install playwright && playwright install chromium"
+    "postCreateCommand": "bash .devcontainer/setup.sh"
   }
