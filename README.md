@@ -30,3 +30,6 @@ docker image ls
 - The index.html is at [src/main/resources/static](/src/main/resources/static/index.html)
 - sql things is at [src/main/resources/](/src/main/resources/)
 - Simple REST API is at [src/main/java/com/example/](src/main/java/com/example/counter/CounterController.java)
+
+  # run the tests
+  - pytests tests
