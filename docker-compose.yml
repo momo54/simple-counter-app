@@ -21,6 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: springboot-backend
     environment:
+      SPRING_PROFILES_ACTIVE: prod
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/counterdb
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
