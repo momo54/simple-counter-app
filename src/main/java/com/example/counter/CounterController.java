@@ -14,13 +14,13 @@ public class CounterController {
 
     @GetMapping
     public int getCounter() {
-        String sql = "SELECT value FROM counter WHERE id = 1";
+        String sql = "SELECT cvalue FROM counters WHERE id = 1";
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 
     @PostMapping("/increment")
     public void incrementCounter() {
-        String sql = "UPDATE counter SET value = value + 1 WHERE id = 1";
+        String sql = "UPDATE counters SET cvalue = cvalue + 1 WHERE id = 1";
         jdbcTemplate.update(sql);
     }
 }

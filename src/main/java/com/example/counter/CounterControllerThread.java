@@ -14,7 +14,7 @@ public class CounterControllerThread {
 
     @GetMapping
     public int getCounter() {
-        String sql = "SELECT value FROM counter WHERE id = 1";
+        String sql = "SELECT cvalue FROM counters WHERE id = 1";
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 
@@ -26,7 +26,7 @@ public class CounterControllerThread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        String sql = "UPDATE counter SET value = "+(x+1)+" WHERE id = 1";
+        String sql = "UPDATE counters SET cvalue = "+(x+1)+" WHERE id = 1";
         jdbcTemplate.update(sql);
     }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Counter with API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Counter: {{ counter }}</h1>
+        <button @click="incrementCounter">Increment Counter</button>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    counter: 0
+                };
+            },
+            methods: {
+                async getCounter() {
+                    try {
+                        let response = await fetch('/api/counter');
+                        this.counter = await response.json();
+                    } catch (error) {
+                        console.error("Error fetching counter:", error);
+                    }
+                },
+                async incrementCounter() {
+                    try {
+                        await fetch('/api/counter/increment', { method: 'POST' });
+                        this.getCounter(); // Fetch updated value
+                    } catch (error) {
+                        console.error("Error incrementing counter:", error);
+                    }
+                }
+            },
+            mounted() {
+                this.getCounter(); // Fetch initial counter value
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>

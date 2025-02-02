@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithril.js Counter with API</title>
+    <script src="https://unpkg.com/mithril/mithril.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        const Counter = {
+            counter: 0,
+
+            getCounter: function() {
+                fetch('/api/counter')
+                    .then(response => response.json())
+                    .then(data => {
+                        Counter.counter = data;
+                        m.redraw(); // Force UI update
+                    })
+                    .catch(error => console.error("Error fetching counter:", error));
+            },
+
+            incrementCounter: function() {
+                fetch('/api/counter/increment', { method: 'POST' })
+                    .then(() => Counter.getCounter()) // Fetch updated value
+                    .catch(error => console.error("Error incrementing counter:", error));
+            },
+
+            oninit: function() {
+                Counter.getCounter(); // Fetch initial counter value
+            },
+
+            view: function() {
+                return m("div", [
+                    m("h1", `Counter: ${Counter.counter}`),
+                    m("button", { onclick: Counter.incrementCounter }, "Increment Counter")
+                ]);
+            }
+        };
+
+        m.mount(document.getElementById("app"), Counter);
+    </script>
+
+</body>
+</html>

@@ -1,1 +1,1 @@
-INSERT INTO counter (value) SELECT 0 WHERE NOT EXISTS (SELECT * FROM counter);
+INSERT INTO counters (cvalue) SELECT 0 WHERE NOT EXISTS (SELECT * FROM counters);
