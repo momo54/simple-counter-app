@@ -10,11 +10,17 @@ To deploy, you need:
 - postgres >=13
 
 
-to compile/run:
+to compile/run for production:
 ```
 mvn clean install  
 docker-compose build --no-cache 
 docker-compose up -d
+```
+
+to compile/run for development:
+```
+mvn clean install  
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 usefull:
