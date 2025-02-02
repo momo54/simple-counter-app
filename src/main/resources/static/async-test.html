@@ -14,6 +14,7 @@
             fetch('/api/counter')
                 .then(response => response.json())
                 .then(data => {
+                    console.log('d');
                     document.getElementById('counterValue').textContent = data;
                 });
             console.log('a');
