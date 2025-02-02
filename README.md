@@ -20,5 +20,6 @@ docker-compose up -d
 usefull:
 ````
 curl http://localhost:8080/api/counter
-docker-compose logs 
+docker-compose logs
+docker-compose down
 ```
