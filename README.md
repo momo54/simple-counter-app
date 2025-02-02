@@ -1,26 +1,19 @@
 # simple counter app with Spring Boot - Postgres - vanilla JS
 
-To develop, you need:
-- java >= 17 
-- Maven > 3
-- python >3.12
-
-To deploy, you need:
-- docker-compose
-- postgres >=13
-
 
 to compile/run for production:
 ```
 mvn clean install  
 docker-compose build --no-cache 
 docker-compose up -d
+echo  "https://${CODESPACE_NAME}-8080.githubpreview.dev"
 ```
 
 to compile/run for development:
 ```
 mvn clean install  
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
+echo  "https://${CODESPACE_NAME}-8080.githubpreview.dev"
 ```
 
 usefull:
@@ -37,5 +30,9 @@ docker image ls
 - sql things is at [src/main/resources/](/src/main/resources/)
 - Simple REST API is at [src/main/java/com/example/](src/main/java/com/example/counter/CounterController.java)
 
-  # run the tests
-  - pytests tests
+# run the tests
+- pytests tests
+
+# what to do ??
+- Change things to pass the tests
+- Push your changes 
