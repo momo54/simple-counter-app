@@ -31,7 +31,7 @@ docker image ls
 - Simple REST API is at [src/main/java/com/example/](src/main/java/com/example/counter/CounterController.java)
 
 # run the tests
-- pytests tests
+- pytest tests
 
 # what to do ??
 - Change things to pass the tests
